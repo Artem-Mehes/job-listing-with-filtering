@@ -5,7 +5,11 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:prettier/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:prettier/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -20,7 +24,10 @@ module.exports = {
   plugins: ['react', 'prettier'],
   ignorePatterns: ['styles.js'],
   rules: {
-    'prettier/prettier': ['error', { arrowParens: 'avoid', bracketSpacing: true }],
+    'prettier/prettier': [
+      'error',
+      { arrowParens: 'avoid', bracketSpacing: true },
+    ],
     'arrow-parens': [2, 'as-needed'],
     'react/jsx-wrap-multilines': 0,
     'react/jsx-indent': 0,
@@ -57,6 +64,7 @@ module.exports = {
     'no-underscore-dangle': [2, { allow: ['_store'] }],
     'react/jsx-fragments': 0,
     'import/no-unresolved': 0,
+    'no-unused-vars': 'warn',
     'import/extensions': 0,
     'no-param-reassign': ['error', { props: false }],
   },

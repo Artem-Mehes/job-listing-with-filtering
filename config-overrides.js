@@ -10,6 +10,7 @@ module.exports = function override(config, env) {
     '@components': path.resolve(__dirname, `${paths.appSrc}/app/components`),
     '@pages': path.resolve(__dirname, `${paths.appSrc}/app/pages`),
     '@utils': path.resolve(__dirname, `${paths.appSrc}/app/utils`),
+    '@constants': path.resolve(__dirname, `${paths.appSrc}/app/constants`),
   })(config, env);
   return config;
 };

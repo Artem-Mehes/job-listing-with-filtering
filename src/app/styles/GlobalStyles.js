@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSize};
     font-family: ${({ theme }) => theme.fontFamily};
     box-sizing: border-box;
+    font-size: 15px;
   }
 
   *, *::after, *::before {
@@ -23,6 +24,10 @@ const GlobalStyles = createGlobalStyle`
 
   #root {
     ${flex.column}
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 
