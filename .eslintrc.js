@@ -63,9 +63,9 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'no-underscore-dangle': [2, { allow: ['_store'] }],
     'react/jsx-fragments': 0,
-    'import/no-unresolved': 0,
     'no-unused-vars': 'warn',
     'import/extensions': 0,
     'no-param-reassign': ['error', { props: false }],
+    'react/react-in-jsx-scope': 'off',
   },
 };
