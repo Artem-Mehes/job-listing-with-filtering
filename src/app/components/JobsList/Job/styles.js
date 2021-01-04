@@ -15,6 +15,7 @@ export const StyledJob = styled.li`
   ${flex.alignCenter}
   background-color: #fff;
   padding: 2rem;
+  box-shadow: 9px 9px 15px -8px ${({ theme }) => theme.colors.shadow};
 
   &:not(:last-child) {
     margin-bottom: 1.5rem;
@@ -53,10 +54,35 @@ export const Position = styled.p`
   margin-bottom: 0.8rem;
 `;
 
-export const Footer = styled.footer`
+export const FooterList = styled.ul`
+  ${flex.alignCenter}
   color: hsl(180, 8%, 52%);
 `;
 
-export const Tablets = styled.ul`
+export const FooterListItem = styled.li`
+  &:not(:first-child) {
+    margin-left: 0.8rem;
+
+    &::before {
+      content: '•';
+      margin-right: 0.8rem;
+    }
+  }
+`;
+
+export const Tablets = styled.div`
+  ${flex.alignCenter}
   margin-left: auto;
+`;
+
+export const Tablet = styled.button`
+  color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.filterTabletsBg};
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
 `;

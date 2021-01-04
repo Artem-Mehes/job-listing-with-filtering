@@ -6,8 +6,10 @@ import {
   Featured,
   Header,
   Position,
-  Footer,
+  FooterList,
+  FooterListItem,
   Tablets,
+  Tablet,
 } from './styles';
 
 const Job = ({
@@ -25,6 +27,7 @@ const Job = ({
     languages,
     tools,
   },
+  addFilter,
 }) => {
   return (
     <StyledJob>
@@ -32,19 +35,23 @@ const Job = ({
       <div>
         <Header>
           <Company>{company}</Company>
-          {isNew && <New>new!</New>}
-          {featured && <Featured>featured</Featured>}
+          {isNew && <New onClick={() => addFilter('New')}>new!</New>}
+          {featured && (
+            <Featured onClick={() => addFilter('Featured')}>featured</Featured>
+          )}
         </Header>
         <Position>{position}</Position>
-        <ul>
+        <FooterList>
           {[postedAt, contract, location].map(item => (
-            <li key={item}>{item}</li>
+            <FooterListItem key={item}>{item}</FooterListItem>
           ))}
-        </ul>
+        </FooterList>
       </div>
       <Tablets>
         {[role, level, ...languages, ...tools].map(item => (
-          <li key={item}>{item}</li>
+          <Tablet key={item} onClick={() => addFilter(item)} value={item}>
+            {item}
+          </Tablet>
         ))}
       </Tablets>
     </StyledJob>
