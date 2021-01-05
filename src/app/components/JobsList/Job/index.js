@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   StyledJob,
   Logo,
@@ -9,7 +10,7 @@ import {
   FooterList,
   FooterListItem,
   Tablets,
-  Tablet,
+  JobTablet,
 } from './styles';
 
 const Job = ({
@@ -30,7 +31,7 @@ const Job = ({
   addFilter,
 }) => {
   return (
-    <StyledJob>
+    <StyledJob isBorder={postedAt.startsWith('1d')}>
       <Logo src={logo} alt="logo" />
       <div>
         <Header>
@@ -49,13 +50,13 @@ const Job = ({
       </div>
       <Tablets>
         {[role, level, ...languages, ...tools].map(item => (
-          <Tablet key={item} onClick={() => addFilter(item)} value={item}>
+          <JobTablet key={item} onClick={() => addFilter(item)} value={item}>
             {item}
-          </Tablet>
+          </JobTablet>
         ))}
       </Tablets>
     </StyledJob>
   );
 };
 
-export default Job;
+export default memo(Job);

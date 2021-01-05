@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import flex from '@utils/flex';
+import tablet from '@utils/tablet';
 
 const jobCategory = css`
   border-radius: 9999px;
@@ -16,6 +17,23 @@ export const StyledJob = styled.li`
   background-color: #fff;
   padding: 2rem;
   box-shadow: 9px 9px 15px -8px ${({ theme }) => theme.colors.shadow};
+  border-radius: 7px;
+  position: relative;
+
+  ${({ isBorder }) =>
+    isBorder &&
+    css`
+      &::before {
+        content: '';
+        background-color: ${({ theme }) => theme.colors.primary};
+        height: 100%;
+        width: 5px;
+        position: absolute;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        left: 0;
+      }
+    `}
 
   &:not(:last-child) {
     margin-bottom: 1.5rem;
@@ -52,6 +70,11 @@ export const Position = styled.p`
   color: ${({ theme }) => theme.colors.dark};
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const FooterList = styled.ul`
@@ -75,12 +98,13 @@ export const Tablets = styled.div`
   margin-left: auto;
 `;
 
-export const Tablet = styled.button`
-  color: ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => theme.colors.filterTabletsBg};
-  padding: 0.7rem;
-  font-size: 0.9rem;
-  font-weight: 700;
+export const JobTablet = styled.button`
+  ${tablet}
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: #fff;
+  }
 
   &:not(:last-child) {
     margin-right: 2rem;

@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import data from '@constants/data';
 import {
   Wrapper,
-  FiltersHeading,
   FiltersList,
-  Filter,
   Header,
   ClearFilters,
   RemoveFilter,
+  FilterItem,
+  FilterText,
 } from './styles';
 import Job from './Job';
 
@@ -19,14 +19,10 @@ const JobsList = () => {
     if (filters.size > 0) {
       const filteredList = data.filter(
         ({ isNew, featured, languages, tools, role, level }) => {
-          const jobInfo = [
-            ...languages,
-            ...tools,
-            role,
-            isNew && 'New',
-            featured && 'Featured',
-            level,
-          ];
+          const jobInfo = [...languages, ...tools, role, level];
+
+          if (isNew) jobInfo.push('New');
+          if (featured) jobInfo.push('Featured');
 
           return [...filters].every(filter => jobInfo.includes(filter));
         }
@@ -57,27 +53,24 @@ const JobsList = () => {
 
   return (
     <Wrapper>
-      <Header>
-        <FiltersHeading>Filters: </FiltersHeading>
-        {filters.size > 0 && (
-          <>
-            <FiltersList>
-              {[...filters].map(filter => (
-                <Filter key={filter}>
-                  {filter}
-                  <RemoveFilter
-                    onClick={() => removeFilter(filter)}
-                    type="button"
-                  />
-                </Filter>
-              ))}
-            </FiltersList>
-            <ClearFilters onClick={clearAllFilters} type="button">
-              Clear
-            </ClearFilters>
-          </>
-        )}
-      </Header>
+      {filters.size > 0 && (
+        <Header>
+          <FiltersList>
+            {[...filters].map(filter => (
+              <FilterItem key={filter}>
+                <FilterText>{filter}</FilterText>
+                <RemoveFilter
+                  onClick={() => removeFilter(filter)}
+                  type="button"
+                />
+              </FilterItem>
+            ))}
+          </FiltersList>
+          <ClearFilters onClick={clearAllFilters} type="button">
+            Clear
+          </ClearFilters>
+        </Header>
+      )}
       <ul>
         {jobsList.map(({ id, ...jobInfo }) => (
           <Job key={id} jobInfo={jobInfo} addFilter={addFilter} />
