@@ -3,10 +3,13 @@ import flex from '@utils/flex';
 import tablet from '@utils/tablet';
 
 export const Wrapper = styled.div`
-  width: 60%;
-  min-width: 700px;
+  width: 1100px;
   margin: 0 auto;
   position: relative;
+
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.header`

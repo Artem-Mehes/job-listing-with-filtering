@@ -16,7 +16,7 @@ export const StyledJob = styled.li`
   ${flex.alignCenter}
   background-color: #fff;
   padding: 2rem;
-  box-shadow: 9px 9px 15px -8px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 9px 9px 15px -8px ${({ theme }) => theme.colors.gray};
   border-radius: 7px;
   position: relative;
 
@@ -32,16 +32,42 @@ export const StyledJob = styled.li`
         border-top-left-radius: 16px;
         border-bottom-left-radius: 16px;
         left: 0;
+        top: 0;
       }
     `}
 
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
+
+  @media (max-width: 850px) {
+    ${flex.column}
+    align-items: initial;
+    padding-top: 3rem;
+
+    &:not(:last-child) {
+      margin-bottom: 3.5rem;
+    }
+  }
 `;
 
 export const Logo = styled.img`
   margin-right: 1.5rem;
+
+  @media (max-width: 850px) {
+    position: absolute;
+    top: -29px;
+    width: 60px;
+  }
+`;
+
+export const JobInfo = styled.div`
+  margin-right: 1rem;
+
+  @media (max-width: 850px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Company = styled.span`
@@ -79,7 +105,7 @@ export const Position = styled.p`
 
 export const FooterList = styled.ul`
   ${flex.alignCenter}
-  color: hsl(180, 8%, 52%);
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const FooterListItem = styled.li`
@@ -95,18 +121,41 @@ export const FooterListItem = styled.li`
 
 export const Tablets = styled.div`
   ${flex.alignCenter}
+  justify-content: flex-end;
+  flex-wrap: wrap;
   margin-left: auto;
+  min-height: 100px;
+
+  @media (max-width: 850px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 850px) {
+    justify-content: initial;
+  }
 `;
 
 export const JobTablet = styled.button`
   ${tablet}
+  margin-right: 2rem;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary};
     color: #fff;
   }
 
-  &:not(:last-child) {
-    margin-right: 2rem;
+  @media (max-width: 1250px) {
+    margin-right: 1rem;
+  }
+`;
+
+export const Line = styled.hr`
+  display: none;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray};
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @media (max-width: 850px) {
+    display: block;
   }
 `;

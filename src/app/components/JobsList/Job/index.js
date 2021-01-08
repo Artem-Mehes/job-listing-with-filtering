@@ -11,6 +11,8 @@ import {
   FooterListItem,
   Tablets,
   JobTablet,
+  JobInfo,
+  Line,
 } from './styles';
 
 const Job = ({
@@ -33,7 +35,7 @@ const Job = ({
   return (
     <StyledJob isBorder={postedAt.startsWith('1d')}>
       <Logo src={logo} alt="logo" />
-      <div>
+      <JobInfo>
         <Header>
           <Company>{company}</Company>
           {isNew && <New onClick={() => addFilter('New')}>new!</New>}
@@ -47,7 +49,8 @@ const Job = ({
             <FooterListItem key={item}>{item}</FooterListItem>
           ))}
         </FooterList>
-      </div>
+      </JobInfo>
+      <Line />
       <Tablets>
         {[role, level, ...languages, ...tools].map(item => (
           <JobTablet key={item} onClick={() => addFilter(item)} value={item}>
