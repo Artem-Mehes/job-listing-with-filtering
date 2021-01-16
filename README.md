@@ -1,6 +1,6 @@
 # `Job Listing With Filtering`
 
-[Link to the project]()
+[Link to the project](https://artem-mehes.github.io/job-listing-with-filtering/)
 
 ## Tech Stack
 
