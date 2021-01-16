@@ -105,10 +105,13 @@ export const Position = styled.p`
 
 export const FooterList = styled.ul`
   ${flex.alignCenter}
+  flex-wrap: wrap;
   color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const FooterListItem = styled.li`
+  margin-bottom: 0.5rem;
+
   &:not(:first-child) {
     margin-left: 0.8rem;
 
@@ -128,10 +131,8 @@ export const Tablets = styled.div`
 
   @media (max-width: 850px) {
     margin-left: 0;
-  }
-
-  @media (max-width: 850px) {
     justify-content: initial;
+    min-height: initial;
   }
 `;
 
@@ -146,6 +147,10 @@ export const JobTablet = styled.button`
 
   @media (max-width: 1250px) {
     margin-right: 1rem;
+  }
+
+  @media (max-width: 850px) {
+    margin-bottom: 1rem;
   }
 `;
 

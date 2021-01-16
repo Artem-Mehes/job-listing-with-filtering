@@ -5,7 +5,6 @@ import tablet from '@utils/tablet';
 export const Wrapper = styled.div`
   width: 1100px;
   margin: 0 auto;
-  position: relative;
 
   @media (max-width: 1250px) {
     width: 100%;
@@ -14,18 +13,19 @@ export const Wrapper = styled.div`
 
 export const Header = styled.header`
   ${flex.spaceBetween}
-  margin-bottom: 2rem;
   background-color: #fff;
   padding: 1.2rem 2rem;
   box-shadow: 9px 9px 15px -8px ${({ theme }) => theme.colors.shadow};
   border-radius: 7px;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: -110px;
 `;
 
 export const FiltersList = styled.ul`
   ${flex.alignCenter}
+  flex-wrap: wrap;
+  row-gap: 1rem;
   flex: 1;
 `;
 

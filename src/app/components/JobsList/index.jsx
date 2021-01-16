@@ -34,10 +34,13 @@ const JobsList = () => {
     }
   }, [filters]);
 
-  const addFilter = useCallback(filter => {
-    const filtersCopy = new Set(filters).add(filter);
-    setFilters(filtersCopy);
-  });
+  const addFilter = useCallback(
+    filter => {
+      const filtersCopy = new Set(filters).add(filter);
+      setFilters(filtersCopy);
+    },
+    [filters]
+  );
 
   const removeFilter = filter => {
     const filtersCopy = new Set(filters);

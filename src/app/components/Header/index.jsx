@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyledHeader } from './styles';
 
-const Header = () => {
-  return <StyledHeader />;
-};
+const Header = () => <StyledHeader />;
 
 export default Header;
