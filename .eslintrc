@@ -30,6 +30,7 @@
     "react/react-in-jsx-scope": 0,
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
-    "prefer-destructuring": [1, { "array": true, "object": true }]
+    "prefer-destructuring": [1, { "array": true, "object": true }],
+    "import/extensions": 0
   }
 }
